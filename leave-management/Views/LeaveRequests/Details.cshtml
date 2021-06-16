@@ -1,0 +1,64 @@
+﻿@model leave_management.Models.LeaveRequestVM
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Review @Model.RequestingEmployee.Firstname @Model.RequestingEmployee.Lastname leave Request</h1>
+<h4>
+    @Html.DisplayNameFor(model => model.DateRequested) - @Html.DisplayFor(model => model.DateRequested)
+</h4>
+<p>
+    @if(Model.Approved == null)
+            {
+                <h4>Status: Request Pending</h4>
+            }else if(Model.Approved == true)
+            {
+                <h4>Status: Request Approved</h4>
+            }
+            else
+            {
+                <h4>Status: Request Rejected</h4>
+            }
+</p>
+<div>
+    
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RequestingEmployee)
+        </dt>
+        <dd class="col-sm-10">
+            @Model.RequestingEmployee.Firstname @Model.RequestingEmployee.Lastname
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LeaveType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LeaveType.Name)
+        </dd>
+        
+    </dl>
+</div>
+<div>
+    @if (Model.Approved == null)
+    {
+        <a class="btn btn-success" asp-action="ApproveRequest" asp-route-id="@Model.Id">Approve</a>
+        <a class="btn btn-warning" asp-action="RejectRequest" asp-route-id="@Model.Id">Reject</a>
+    }
+
+    <a asp-action="Index">Back to List</a>
+</div>
