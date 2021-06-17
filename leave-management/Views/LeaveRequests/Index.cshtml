@@ -1,45 +1,49 @@
 ﻿@model AdminLeaveRequestViewVM
 
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 
 <div class="row">
     <div class="col-md-3">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h1 class="card-title">@Model.TotalRequests</h1>
-                <h5 class="card-text">@Html.DisplayFor(model => model.TotalRequests)</h5>
+        <div class="info-box">
+            <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">@Html.DisplayNameFor(model => model.TotalRequests)</span>
+                <span class="info-box-number">@Model.TotalRequests</span>
             </div>
+            <!-- /.info-box-content -->
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h1 class="card-title">@Model.ApprovedRequests</h1>
-                <h5 class="card-text">@Html.DisplayFor(model => model.ApprovedRequests)</h5>
+        <div class="info-box">
+            <span class="info-box-icon bg-success"><i class="fas fa-check-circle"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">@Html.DisplayNameFor(model => model.ApprovedRequests)</span>
+                <span class="info-box-number">@Model.ApprovedRequests</span>
             </div>
+            <!-- /.info-box-content -->
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h1 class="card-title">@Model.PeandingRequests</h1>
-                <h5 class="card-text">@Html.DisplayFor(model => model.PeandingRequests)</h5>
+        <div class="info-box">
+            <span class="info-box-icon bg-warning"><i class="fas fa-exclamation-circle"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">@Html.DisplayNameFor(model => model.PeandingRequests)</span>
+                <span class="info-box-number">@Model.PeandingRequests</span>
             </div>
+            <!-- /.info-box-content -->
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h1 class="card-title">@Model.RejectedRequests</h1>
-                <h5 class="card-text">@Html.DisplayFor(model => model.RejectedRequests)</h5>
+        <div class="info-box">
+            <span class="info-box-icon bg-danger"><i class="far fa-times-circle"></i></span>
+
+            <div class="info-box-content">
+                <span class="info-box-text">@Html.DisplayNameFor(model => model.RejectedRequests)</span>
+                <span class="info-box-number">@Model.RejectedRequests</span>
             </div>
+            <!-- /.info-box-content -->
         </div>
     </div>
 </div>
@@ -106,7 +110,7 @@
             </td>
             <td>
                
-                <a class="btn btn-outline-primary" asp-action="Details" asp-route-id="@item.Id">Review</a> |
+                <a class="btn btn-outline-primary" asp-action="Details" asp-route-id="@item.Id">Review</a> 
                 
             </td>
         </tr>
